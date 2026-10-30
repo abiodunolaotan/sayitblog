@@ -1,4 +1,4 @@
-import React from 'react'
+import Image  from 'next/image'
 import Icon from './Icon';
 
 const QuoteCard = ({quote}) => {
@@ -12,10 +12,12 @@ const QuoteCard = ({quote}) => {
         </h3>
         
         <div className='flex items-center gap-3 mt-6'>
-          <img 
+          <Image
+          width={"48"}
+          height={"48"}
             src={image} 
             alt={author}
-            className='w-12 h-12 rounded-full object-cover flex-shrink-0' 
+            className='w-12 h-12 rounded-full object-cover shrink-0' 
           />
           <p className='font-semibold'>{author}</p>
         </div>

@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "sayit",
-  description: "You can say it better with say it",
+  title: "Sayit",
+  description: "You can always say it better with Sayit.",
 };
 
 export default function RootLayout({ children }) {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      suppressHydrationWarning="true"
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
         <AuthProvider>

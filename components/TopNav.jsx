@@ -7,9 +7,12 @@
 
 import { usePathname } from "next/navigation";
 import Icon from './Icon';
+import Image from "next/image";
+import { useAuth } from "@/context/AuthContext";
 
 const TopNav = () => {
     const pathname = usePathname();
+    const {user} = useAuth();
 
     const pageTitle = pathname === "/"
         ? "Home"
@@ -25,7 +28,7 @@ const TopNav = () => {
 
             <div className="flex items-center gap-4">
                 <div className=" rounded-full bg-sky-100 flex items-center justify-center text-sky-900 font-bold">
-                    <img src="/Images/ayinde.jpg" alt="ayinde" className="rounded-full w-12 h-12 cursor-pointer"/>
+                    <Image src="/Images/ayinde.jpg" width="48" height="48" alt="ayinde" className="rounded-full w-12 h-12 cursor-pointer"/>
                 </div>
                 <p className="font-medium text-2 cursor-pointer">Abiodun Olaotan<Icon name="AngleDown"/></p>
             </div>

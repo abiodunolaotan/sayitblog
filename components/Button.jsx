@@ -2,7 +2,7 @@
 
 
 
-const Button = ({ label, className, onClick }) => {
+const Button = ({ label, className, onClick, href }) => {
     return (
         <button
             className={`${className} rounded-full py-2 px-6`}

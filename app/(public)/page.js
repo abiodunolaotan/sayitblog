@@ -1,21 +1,23 @@
+import Footer from "@/components/Footer"
+import Hero from "@/components/Hero"
+import HeroCTA from "@/components/HeroCTA"
+import HeroTrustList from "@/components/HeroTrustList"
 
 
-
-import Body from '@/components/Body'
-import Hero from '@/components/Hero'
-import Footer from '@/components/Footer'
-import React from 'react'
-import HeroTrustList from '@/components/HeroTrustList'
-import HeroCTA from '@/components/HeroCTA'
 
 const Home = () => {
+
   return (
-    <>
+  
+
+      <main >
       <Hero />
       <HeroTrustList />
       <HeroCTA />
-    </>
+      </main>
+   
+
+
   )
 }
-
 export default Home

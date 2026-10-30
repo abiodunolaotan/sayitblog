@@ -4,6 +4,7 @@ import QuoteCard from '@/components/QuoteCard'
 
 const Dashboard = () => {
   const [quotes, setQuotes] = useState([]);
+  const [isLoadng, setIsLoading] = useState(true);
 
   const myImages = [
     "https://i.pravatar.cc/150?img=1",
@@ -20,10 +21,17 @@ const Dashboard = () => {
         setQuotes(data.quotes);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
+
       }
     }
     fetchQuotes();
   }, []);
+
+  if (isLoadng) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className='p-6 bg-gray-100 min-h-screen'>

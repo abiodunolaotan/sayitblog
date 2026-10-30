@@ -2,73 +2,63 @@
 
 import Counter from "@/components/Counter"
 import PostList from "@/components/PostList";
-import { useEffect, useState } from "react"
+import {  useEffect, useState } from "react";
 
 
 
 const Dashboard = () => {
 
   const [count, setCount] = useState(0);
-  const [posts, setPosts] = useState([]);
-  const [isLoadng, setIsLoading] = useState(true);
-
-
-  const handleDecrement = () => {
-    if (count > 0) {
-      setCount(count - 1)
-
-    }
-    else { 0 }
-  }
-
+  const [posts, setPosts] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
+  
+  
   const handleIncrement = () => {
     setCount(count + 1);
   }
+  const handleDecrement = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    } else {
+      setCount(0)
+    }
+  }
 
-
+  // How to fetch data from an endpoint using useEffect
   useEffect(() => {
-    const fetchpost = async () => {
+    const fetchPost = async () => {
       try {
         const response = await fetch("https://dummyjson.com/posts")
-
-        const data = await response.json()
-
         
-
+        const data = await response.json()
         setPosts(data.posts)
 
+        
       } catch (error) {
-        console.log("Error fetching posts:", error)
-
+        console.error("Error fetching posts:", error);
       } finally {
         setIsLoading(false);
-
       }
-   }
-    fetchpost()
-
+    }
+    fetchPost()
 
   }, []);
-
   
-    if (isLoadng) {
+  if(isLoading) {
     return <div>Loading...</div>
   }
+
   return (
     <div>
-      {/* 
-      <Counter
+      {/* <Counter
         count={count}
         onIncrement={handleIncrement}
         onDecrement={handleDecrement}
-      /> 
-      */}
-
+      /> */}
 
       <PostList
-       posts={posts} 
-       />
-
+        posts={posts}
+      />
     </div>
   )
 }
